@@ -23,15 +23,8 @@
         </nav>
         <button class="main-button">Консультация</button>
       </div>
-
-      <div class="header-timer">
-        <span>{{ currentDateTime | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
-      </div>
-      <div class="header-counter">
-        <div class="trigger-section">
-          <button class="trigger-btn" (click)="increaseClicks()">Показать кликер</button>
-        </div>
-        @if (isCounterVisible) {
+      @if (showCounter) {
+        <div class="header-counter">
           <div class="counter-container">
             <button
               class="counter-btn counter-btn-minus"
@@ -43,7 +36,16 @@
             <span class="counter-value">{{ clickCount }}</span>
             <button class="counter-btn counter-btn-plus" (click)="increaseClicks()">+</button>
           </div>
-        }
+        </div>
+      } @else {
+        <div class="header-timer">
+          <span>{{ currentDateTime | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
+        </div>
+      }
+      <div class="trigger-section">
+        <button class="trigger-btn" (click)="toggleTimerCounter()">
+          {{ showCounter ? 'Показать дату' : 'Показать кликер' }}
+        </button>
       </div>
     </header>
 

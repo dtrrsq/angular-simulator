@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isCounterVisible: boolean = false;
   liveInput: string = '';
   isLoading: boolean = true;
+  showCounter: boolean = false;
 
   tourProgram = [
     {
@@ -102,12 +103,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   increaseClicks(): void {
     this.clickCount++;
-    this.isCounterVisible = true;
   }
 
   decreaseClicks(): void {
     if (this.clickCount > 0) {
       this.clickCount--;
     }
+  }
+
+  toggleTimerCounter(): void {
+    this.showCounter = !this.showCounter;
   }
 }
