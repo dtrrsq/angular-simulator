@@ -1,0 +1,19 @@
+@use './fonts';
+@use './normalize';
+
+* {
+  font-family: 'Nunito-Sans';
+  box-sizing: border-box;
+}
+
+.header {
+  display: block;
+  width: 100%;
+  max-width: 1920px;
+  height: 120px;
+}
+
+:root {
+  --white-color: #fdfdfd;
+  --black-color: #18121e;
+}
