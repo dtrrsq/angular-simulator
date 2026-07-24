@@ -170,7 +170,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   triggerAlert(text: string, type: MessageType): void {
-    this.messageService.addMessage(text, type);
+    if (type === MessageType.SUCCESS) {
+      this.messageService.showSuccess(text);
+    } else if (type === MessageType.INFO) {
+      this.messageService.showInfo(text);
+    } else if (type === MessageType.WARN) {
+      this.messageService.showWarn(text);
+    } else if (type === MessageType.ERROR) {
+      this.messageService.showError(text);
+    }
   }
 
   closeMessageFromHtml(id: number): void {

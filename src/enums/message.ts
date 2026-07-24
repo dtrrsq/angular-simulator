@@ -1,5 +1,5 @@
 export enum MessageType {
-  SUCCESS = 'Successs',
+  SUCCESS = 'Success',
   INFO = 'Info',
   WARN = 'Warn',
   ERROR = 'Error',
