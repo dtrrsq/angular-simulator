@@ -8,7 +8,7 @@
     <header class="header">
       <div class="super-header">
         <div class="company-logo">
-          <img class="logo-img" src="/images/mountains-icon.svg" alt="mini-mountains" />
+          <img class="logo-img" src="/images/icons/mountains-icon.svg" alt="mini-mountains" />
           <h1 class="company-name">{{ companyName }}</h1>
         </div>
         <nav class="main-navigation">
@@ -102,7 +102,7 @@
               }
             </datalist>
           </div>
-          <button class="form-button" [disabled]="!tourLocation || !tourDate || !tourMembers">
+          <button class="form-btn button" [disabled]="!tourLocation || !tourDate || !tourMembers">
             Найти программу
           </button>
         </div>
@@ -124,7 +124,7 @@
       <div class="img-village"></div>
     </div>
     <div class="infoHike">
-      <div class="textHike">
+      <div class="textHike section-title">
         <h2>о нашем походе</h2>
         <p>Исследуйте все горные массивы мира вместе с нами</p>
       </div>
@@ -134,16 +134,18 @@
         Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur"и занялся его
         поисками в классической латинской литературе.
       </p>
-      <button class="tour-btn">Программа тура</button>
+      <button class="tour-btn button" (click)="triggerAlert('Программа недоступна', MsgTypes.WARN)">
+        Программа тура
+      </button>
     </div>
   </section>
 
   <section class="tour-program">
     @for (program of tourProgram; track program.id) {
       <div class="tour-program_container">
-        <div class="tour-program_descr">
-          <p>{{ program.label }}</p>
+        <div class="tour-program_descr section-title">
           <h2>{{ program.title }}</h2>
+          <p>{{ program.label }}</p>
         </div>
         <p class="tour-program_text">{{ program.description }}</p>
         @for (feature of program.features; track feature.id) {
@@ -155,9 +157,110 @@
             </div>
           </div>
         }
-        <button class="tour-program_btn">{{ program.buttonText }}</button>
+        <button
+          class="tour-program_btn button"
+          (click)="triggerAlert('Стоимость отправлена на почту', MsgTypes.INFO)"
+        >
+          {{ program.buttonText }}
+        </button>
       </div>
     }
     <div class="pic-container"></div>
   </section>
+
+  <section class="popular-routes">
+    <div class="popular-destinations section-title">
+      <h2>по версии отдыхающих</h2>
+      <p>Популярные направления</p>
+    </div>
+    <div class="popular-routes__grid">
+      <div class="route-card route-card--lake">
+        <div class="route-card__rating"><span class="star-icon"></span> 4.9</div>
+        <div class="route-card__content">
+          <div class="route-card__text">
+            <h3 class="route-card__title">Озеро возле гор</h3>
+            <p class="route-card__desc">романтическое приключение</p>
+          </div>
+          <div class="route-card__price">480 &#36;</div>
+        </div>
+      </div>
+      <div class="route-card route-card--night">
+        <div class="route-card__rating"><span class="star-icon"></span> 4.5</div>
+        <div class="route-card__content">
+          <div class="route-card__text">
+            <h3 class="route-card__title">Ночь в горах</h3>
+            <p class="route-card__desc">в компании друзей</p>
+          </div>
+          <div class="route-card__price">500 &#36;</div>
+        </div>
+      </div>
+      <div class="route-card route-card--stretching">
+        <div class="route-card__rating"><span class="star-icon"></span> 5.0</div>
+        <div class="route-card__content">
+          <div class="route-card__text">
+            <h3 class="route-card__title">Растяжка в горах</h3>
+            <p class="route-card__desc">для тех, кто забоится о себе</p>
+          </div>
+          <div class="route-card__price">230 &#36;</div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="routes-btn button"
+      (click)="triggerAlert('Направления получены', MsgTypes.SUCCESS)"
+    >
+      Рейтинг направлений
+    </button>
+  </section>
+
+  <section class="travel-blog">
+    @for (info of infoCities; track info.id) {
+      <div class="travel-blog__header section-title">
+        <h2>{{ info.title }}</h2>
+        <p>{{ info.label }}</p>
+      </div>
+      <div class="travel-blog__grid">
+        @for (feature of info.features; track feature.id) {
+          <div class="travel-blog__card">
+            <img [src]="feature.img" alt="something" class="travel-blog__img" />
+            <div class="travel-blog__content">
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.desc }}</p>
+              <div class="travel-blog__text">
+                <span>{{ feature.date }}</span>
+                <span>{{ feature.link }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <button
+        class="travel-blog__btn button"
+        (click)="triggerAlert('Материалы недоступны', MsgTypes.ERROR)"
+      >
+        {{ info.buttonText }}
+      </button>
+    }
+  </section>
+
+  <div class="messages-overlay">
+    @for (messageItem of currentMessages; track messageItem.id) {
+      <ng-container *ngTemplateOutlet="messageTemplate; context: { $implicit: messageItem }">
+      </ng-container>
+    }
+  </div>
+
+  <ng-template #messageTemplate let-msg>
+    <div class="message-alert" [class]="'message-alert--' + msg.type">
+      <div class="message-alert__content">
+        <div class="message-alert__icon"></div>
+        <div class="message-alert__text-group">
+          <h4 class="message-alert__text">{{ msg.type }}</h4>
+          <p class="message-alert__text">{{ msg.text }}</p>
+        </div>
+      </div>
+
+      <div class="message-alert__close" (click)="closeMessageFromHtml(msg.id)"></div>
+    </div>
+  </ng-template>
 }
