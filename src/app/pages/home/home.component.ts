@@ -1,35 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Colors } from '../enums/color';
-import { tourCollection } from '../collection';
-import { memberCollection } from '../collection';
+import { Component } from '@angular/core';
+import { Colors } from '../../../enums/color';
+import { tourCollection } from '../../../collection';
+import { memberCollection } from '../../../collection';
 import { FormsModule } from '@angular/forms';
-import { DatePipe, NgTemplateOutlet } from '@angular/common';
-import { MessageService } from './services/message.service';
-import { MessageType } from '../enums/message';
-import { StorageService } from './services/storage.service';
+import { MessageService } from '../../services/message.service';
+import { MessageType } from '../../../enums/message';
+import { StorageService } from '../../services/storage.service';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MessageComponent } from './components/message/message.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [FormsModule, RouterOutlet, HeaderComponent, FooterComponent, MessageComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'app-home',
+  imports: [FormsModule],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class HomeComponent {
   tourLocation: string = '';
   tourDate: string = '';
   tourMembers: string = '';
-  companyName: string = 'РУМТИБЕТ';
   tours = tourCollection;
   members = memberCollection;
-  clickCount: number = 0;
-  isCounterVisible: boolean = false;
   liveInput: string = '';
   isLoading: boolean = true;
-  showCounter: boolean = false;
   MsgTypes = MessageType;
 
   tourProgram = [
@@ -137,6 +129,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.saveVisitCount();
   }
 
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  }
+
   public isCurrentColor(color: Colors): boolean {
     if (color === Colors.GREEN || color === Colors.BLUE || color === Colors.RED) {
       return true;
@@ -158,43 +156,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.storageService.set<number>('visitCount', newCount);
   }
 
-  currentDateTime: Date = new Date();
-  private timerId: any;
-
-  ngOnInit() {
-    this.timerId = setInterval(() => {
-      this.currentDateTime = new Date();
-    }, 1000);
-
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
-  }
-
-  ngOnDestroy() {
-    if (this.timerId) {
-      clearInterval(this.timerId);
-    }
-  }
-
-  increaseClicks(): void {
-    this.clickCount++;
-  }
-
-  decreaseClicks(): void {
-    if (this.clickCount > 0) {
-      this.clickCount--;
-    }
-  }
-
-  toggleTimerCounter(): void {
-    this.showCounter = !this.showCounter;
-  }
-
-  get currentMessages() {
-    return this.messageService.AllMessages;
-  }
-
   triggerAlert(text: string, type: MessageType): void {
     if (type === MessageType.SUCCESS) {
       this.messageService.showSuccess(text);
@@ -205,9 +166,5 @@ export class AppComponent implements OnInit, OnDestroy {
     } else if (type === MessageType.ERROR) {
       this.messageService.showError(text);
     }
-  }
-
-  closeMessageFromHtml(id: number): void {
-    this.messageService.closeMessage(id);
   }
 }

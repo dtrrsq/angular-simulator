@@ -1,0 +1,21 @@
+<div class="messages-overlay">
+    @for (messageItem of currentMessages; track messageItem.id) {
+      <ng-container *ngTemplateOutlet="messageTemplate; context: { $implicit: messageItem }">
+      </ng-container>
+    }
+  </div>
+
+
+  <ng-template #messageTemplate let-msg>
+    <div class="message-alert" [class]="'message-alert--' + msg.type">
+      <div class="message-alert__content">
+        <div class="message-alert__icon"></div>
+        <div class="message-alert__text-group">
+          <h4 class="message-alert__text">{{ msg.type }}</h4>
+          <p class="message-alert__text">{{ msg.text }}</p>
+        </div>
+      </div>
+
+      <div class="message-alert__close" (click)="closeMessageFromHtml(msg.id)"></div>
+    </div>
+  </ng-template>
