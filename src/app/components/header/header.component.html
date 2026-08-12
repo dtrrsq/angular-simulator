@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="super-header">
+    <div class="company-logo">
+      <img class="logo-img" src="/images/icons/mountains-icon.svg" alt="mini-mountains" />
+      <h1 class="company-name">{{ companyName }}</h1>
+    </div>
+    <nav class="main-navigation">
+      <ul>
+        @for (link of navigationMenu; track link.label) {
+          <li>
+            <a
+              [routerLink]="[link.route]"
+              routerLinkActive="active-menu-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <button class="main-button">Консультация</button>
+  </div>
+  @if (showCounter) {
+    <div class="header-counter">
+      <div class="counter-container">
+        <button
+          class="counter-btn counter-btn-minus"
+          (click)="decreaseClicks()"
+          [disabled]="clickCount === 0"
+        >
+          -
+        </button>
+        <span class="counter-value">{{ clickCount }}</span>
+        <button class="counter-btn counter-btn-plus" (click)="increaseClicks()">+</button>
+      </div>
+    </div>
+  } @else {
+    <div class="header-timer">
+      <span>{{ currentDateTime | date: 'dd.MM.yyyy HH:mm:ss' }}</span>
+    </div>
+  }
+  <div class="trigger-section">
+    <button class="trigger-btn" (click)="toggleTimerCounter()">
+      {{ showCounter ? 'Показать дату' : 'Показать кликер' }}
+    </button>
+  </div>
+</header>

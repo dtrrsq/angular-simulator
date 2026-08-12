@@ -1,0 +1,217 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1920px;
+  height: 587px;
+  background-color: #1a3e3e;
+  margin: auto;
+  position: relative;
+
+  .distribution-container {
+    width: 100%;
+    max-width: 1180px;
+    height: 196px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px #18121e1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    padding: 0 20px;
+
+    .destribution-title {
+      width: 380px;
+      height: 90px;
+      margin-bottom: 40px;
+      h2 {
+        margin-top: 0;
+        width: 87px;
+        height: 20px;
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 26px;
+        width: 380px;
+        height: 62px;
+        font-weight: 800;
+        line-height: 120%;
+      }
+    }
+    .destribution-input {
+      width: 536px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 280px;
+        height: 44px;
+        padding-left: 16px;
+        border-radius: 4px;
+        background-color: #f3f5f4;
+        border: 0;
+      }
+
+      .destribution-btn {
+        width: 240px;
+        height: 44px;
+        margin-top: 30px;
+      }
+    }
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      width: 536px;
+      height: 36px;
+    }
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 70px;
+
+    .contacts-container {
+      display: flex;
+      flex-direction: column;
+      width: 480px;
+      height: 263px;
+      color: var(--white-color);
+
+      h1 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      p {
+        font-weight: 250;
+        margin-top: 0;
+      }
+
+      .contacts {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        height: 18px;
+        text-decoration: underline;
+        text-decoration-style: solid;
+        margin-top: auto;
+      }
+
+      .icons-container {
+        background-image:
+          url(/images/icons/telegram-icon.png), url(/images/icons/vk-icon.png),
+          url(/images/icons/pinterest-icon.png), url(/images/icons/skype-icon.png);
+        background-repeat: no-repeat;
+        background-position:
+          0px center,
+          48px center,
+          96px center,
+          144px center;
+
+        width: 176px;
+        height: 32px;
+        margin-top: 40px;
+      }
+    }
+    .services-container {
+      width: 280px;
+      height: 232px;
+      display: flex;
+      flex-direction: column;
+      color: var(--white-color);
+
+      h2 {
+        margin-top: 0;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      .services {
+        list-style-image: url('/images/icons/arrow-icon.svg');
+        padding-left: 17px;
+        margin-top: 10px;
+        width: 280px;
+        gap: 20px;
+
+        li {
+          padding-bottom: 20px;
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  .travel-container {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    color: var(--white-color);
+
+    h2 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      margin-top: 23px;
+    }
+
+    .travel {
+      list-style-image: url('/images/icons/arrow-icon.svg');
+      padding-left: 17px;
+      margin-top: 10px;
+      width: 280px;
+      gap: 20px;
+
+      li {
+        padding-bottom: 20px;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .processing-data__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1920px;
+    height: 66px;
+    background-color: #18121e;
+    color: var(--white-color);
+
+    .processing-data {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 1180px;
+      height: 18px;
+      font-weight: 600px;
+      font-size: 14px;
+
+      span:nth-child(2) {
+        text-decoration: underline;
+      }
+    }
+  }
+}

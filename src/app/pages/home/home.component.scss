@@ -1,0 +1,506 @@
+
+.hero-container {
+  background-image: url(/images/bg-main.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .main-page {
+    width: 100%;
+    height: 985px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    .main-title {
+      width: 100%;
+      max-width: 1080px;
+      height: auto;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 150%;
+
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+
+      color: var(--white-color);
+    }
+
+    .search-form {
+      background-color: #ffffff33;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 161px;
+      width: 100%;
+      max-width: 1180px;
+
+      .search-container {
+        width: 1095px;
+        display: flex;
+        gap: 33px;
+        color: var(--white-color);
+
+        .main-inputs {
+          display: flex;
+          flex-direction: column;
+          width: 270px;
+          height: 81px;
+          text-align: left;
+          gap: 8px;
+
+          .custom-input {
+            width: 100%;
+            height: 52px;
+            border: 1px solid #e1e3e4;
+            border-radius: 8px;
+            background-color: transparent;
+            outline: none;
+            box-shadow: none;
+            padding: 0 0 0 15px;
+            color: var(--white-color);
+
+            &::placeholder {
+              color: var(--white-color);
+            }
+          }
+        }
+        .form-btn {
+          width: 213px;
+        }
+      }
+    }
+    .live-container {
+      width: 470px;
+      height: 52px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+
+      .live-input {
+        width: 270px;
+        height: 52px;
+        background-color: transparent;
+        border: 1px solid #e1e3e4;
+        color: var(--white-color);
+        border-radius: 8px;
+        padding: 0 0 0 15px;
+      }
+
+      .live-title {
+        color: var(--white-color);
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+.aboutHike {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  height: 526px;
+  min-height: 80vh;
+  margin: 0 auto;
+
+  .imageHike {
+    position: relative;
+    display: inline-block;
+    width: 480px;
+    height: 526px;
+
+    .img-mountain {
+      display: block;
+      width: 100%;
+      max-width: 350px;
+      border-radius: 24px;
+      object-fit: cover;
+    }
+
+    .img-village {
+      position: absolute;
+      width: 350px;
+      height: 400px;
+      top: 126px;
+      left: 130px;
+      opacity: 1;
+      background-image: url(/images/village-pic.png);
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .infoHike {
+    width: 580px;
+    height: 398px;
+
+    .descrHike {
+      width: 580px;
+      height: 162px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      color: var(--black-color);
+    }
+    .tour-btn {
+      width: 200px;
+    }
+  }
+}
+
+.tour-program {
+  margin: 0 auto;
+  background-color: #f3f5f4;
+  height: 771px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  .tour-program_container {
+    width: 580px;
+    height: 591px;
+
+    .tour-program_text {
+      margin-bottom: 40px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      letter-spacing: 0%;
+      color: var(--black-color);
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 44px;
+      gap: 16px;
+      width: 580px;
+
+      .feature-item__icon {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+
+      .feature-item__text {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        h4 {
+          margin: 0;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 20px;
+          letter-spacing: 1.2%;
+          color: var(--black-color);
+        }
+        p {
+          margin: 0;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0%;
+        }
+      }
+    }
+    .tour-program_btn {
+      width: 236px;
+    }
+  }
+  .pic-container {
+    background-image:
+      url(/images/tea-pic.svg), url(/images/man-pic.svg), url(/images/machine-pic.svg),
+      url(/images/field-pic.svg);
+    background-position:
+      top left,
+      top right,
+      bottom left,
+      bottom right;
+
+    width: 510px;
+    height: 510px;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+      transform: scale(1.03);
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.popular-routes {
+  width: 100%;
+  height: 100%;
+  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+
+  .popular-destinations {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .popular-routes__grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    max-width: 1180px;
+    height: 500px;
+    .route-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      border-radius: 32px;
+      width: 380px;
+      height: 500px;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &--lake {
+        background-image: url(/images/mountain-lake.png);
+      }
+
+      &--night {
+        background-image: url(/images/mountain-night.png);
+      }
+
+      &--stretching {
+        background-image: url(/images/mountain-stretching.png);
+      }
+
+      .route-card__rating {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0%;
+
+        height: 32px;
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        flex-shrink: 0;
+        top: 50px;
+        left: 315px;
+        gap: 4px;
+        padding: 4px 8px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        background: #fdfdfd66;
+        color: #1a3e3e;
+        .star-icon {
+          width: 24px;
+          height: 24px;
+          display: inline-block;
+          background-image: url(/images/icons/star-icon.svg);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          flex-shrink: 0;
+        }
+      }
+
+      .route-card__content {
+        color: var(--white-color);
+        padding: 24px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(6px);
+
+        .route-card__text {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .route-card__title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+          }
+          .route-card__desc {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+        .route-card__price {
+          width: 80px;
+          height: 40px;
+          background: #ffffff4d;
+          padding: 10px 18px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .routes-btn {
+    width: 244px;
+  }
+}
+
+.travel-blog {
+  width: 100%;
+  height: 1036px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f3f5f4;
+
+  .travel-blog__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .travel-blog__grid {
+    max-width: 1180px;
+    height: 648px;
+    margin-bottom: 50px;
+    gap: 24px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    .travel-blog__img {
+      width: 230px;
+      height: 280px;
+    }
+
+    .travel-blog__card {
+      width: 580px;
+      height: 312px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fdfdfd;
+      border-radius: 10px;
+      padding: 16px;
+      transition: all 0.3s ease;
+      &:hover {
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+        transform: scale(1.03);
+        h3 {
+          text-decoration: underline;
+          text-decoration-style: solid;
+        }
+      }
+
+      .travel-blog__content {
+        width: 294px;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        padding: 16px 0px;
+
+        h3 {
+          margin-top: 0;
+          font-size: 24px;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .travel-blog__text {
+          display: flex;
+          justify-content: space-between;
+          margin-top: auto;
+
+          span:first-child {
+            color: #f2be22;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0%;
+          }
+          span:nth-child(2) {
+            font-weight: 700;
+            color: #1a3e3e;
+          }
+        }
+      }
+    }
+  }
+  .travel-blog__btn {
+    width: 220px;
+  }
+}
+
+
+.photo-report__container {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .report-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .report-pictures__container {
+    width: 1180px;
+    height: 520px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+    margin-bottom: 40px;
+    gap: 20px;
+
+    .report-picture-card {
+      width: 280px;
+      height: 250px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &:nth-child(1) {
+        width: 580px;
+        height: 250px;
+        grid-column: span 2;
+      }
+
+      &:nth-child(5) {
+        width: 580px;
+        height: 250px;
+        grid-column: span 2;
+      }
+    }
+  }
+  .pinterest-btn {
+    width: 172px;
+    margin-bottom: 100px;
+  }
+}

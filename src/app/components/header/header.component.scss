@@ -1,0 +1,131 @@
+.header {
+  color: var(--white-color);
+  background-color: #18121e80;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  .super-header {
+    display: flex;
+    width: 100%;
+    max-width: 1180px;
+    height: 60px;
+    justify-content: space-between;
+
+    .company-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+
+      .logo-img {
+        width: 138px;
+        height: 28.78px;
+      }
+
+      .company-name {
+        width: 132px;
+        height: 22px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.4em;
+      }
+    }
+
+    .main-navigation {
+      ul {
+        display: flex;
+        list-style: none;
+        gap: 24px;
+        padding: 0;
+        margin: 0;
+
+        a {
+          text-decoration: none;
+          color: #94a3b8;
+          font-weight: 500;
+          font-size: 16px;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #64748b;
+          }
+          &.active-menu-link {
+            color: #1a3e3e;
+            font-weight: 700;
+            border-bottom: 2px solid #1a3e3e;
+            padding-bottom: 4px;
+          }
+        }
+      }
+    }
+
+    .main-button {
+      width: 158px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fdfdfd;
+      padding: 0px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin: auto;
+      cursor: pointer;
+    }
+  }
+  .header-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-left: 15px;
+
+    .trigger-btn {
+      width: 157px;
+      height: 44px;
+    }
+    .counter-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background-color: #f7fafc;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+
+      .counter-value {
+        font-size: 16px;
+        font-weight: bold;
+        color: #2d3748;
+        min-width: 20px;
+      }
+
+      .counter-btn {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #e55b5b;
+        }
+
+        &:disabled {
+          background-color: #cbd5e0;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
